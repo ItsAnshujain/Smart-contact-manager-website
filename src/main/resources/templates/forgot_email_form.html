@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Forgot password page</title>
+    
+</head>
+<body>
+    <section class="vh-100" style="background-color: #AFC8AD;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-6">
+              <div class="card" style="border-radius: 1rem;">
+      
+                      <form class="p-3" th:action="@{/send-otp}" method="post">
+                        <div th:if="${session.message}">
+                            <div class="alert alert-danger text-center" role="alert">
+                                <span th:text="${session.message}"></span>
+                            </div>
+                            <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+                        </div>
+                        <h3 class="text-center p-3" style="letter-spacing: 1px;">Your Registered Email</h3>
+                        
+                        <div class="form-outline mb-4">
+                          <input name="email" type="email" id="form2Example27" class="form-control form-control-lg" placeholder="Enter email here" required/>
+                          
+                        </div>
+      
+                        <div class="pt-1 mb-4 text-center">
+                          <input type="submit" name="submit" value="Send OTP" class="btn btn-success btn-lg btn-block">
+                        </div>
+                      </form>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+</html>
